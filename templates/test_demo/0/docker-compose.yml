@@ -24,11 +24,28 @@ services:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
      tty: true
-  postgresql:
+  redis:
+          image: redis:3.2
+     hostname: redis
+     ports:
+       - "6379:6379"
+     volumes:
+       - /sys/fs/cgroup:/sys/fs/cgroup
+     privileged: true
+  postgresqlmaster:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
-     hostname: postgresql
+     hostname: postgresqlmaster
      ports:
        - "5390:5432"
+     volumes:
+       - /sys/fs/cgroup:/sys/fs/cgroup
+     privileged: true
+     tty: true
+  postgresqlslave:
+     image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
+     hostname: postgresqlslave
+     ports:
+       - "5380:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
