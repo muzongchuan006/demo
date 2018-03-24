@@ -42,12 +42,3 @@ services:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
      tty: true
-  postgresql_slave:
-     image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
-     hostname: postgresql_S
-     ports:
-       - "5380:5432"
-     volumes:
-       - /sys/fs/cgroup:/sys/fs/cgroup
-     privileged: true
-     tty: true
