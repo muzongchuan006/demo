@@ -12,7 +12,6 @@ services:
        - /demo/node/data:/data
      privileged: true
      tty: true
-services2:
   rabbitmq:
      image: 10.0.0.96:5000/library/rabbitmq:3.6.10-management
      hostname: rabbitmq

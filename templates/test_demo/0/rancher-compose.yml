@@ -29,7 +29,6 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
-services2:
   rabbitmq:
     scale: 1
     start_on_create: true
