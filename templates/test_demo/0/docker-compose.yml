@@ -1,0 +1,53 @@
+version: '2'
+services:
+  node:
+     image: 10.0.0.96:5000/my_os/node:v1.1
+     hostname: node
+     ports:
+       - ${port_gateway}:5002
+       - ${port_consume}:6007
+     volumes:
+       - /demo/node/data:/data
+     privileged: true
+     tty: true
+  rabbitmq:
+          image: 10.0.0.96:5000/library/rabbitmq
+     hostname: rabbitmq
+     ports:
+       - "5671:5671"
+       - "5672:5672"
+       - "4369:4369"
+       - "15671:15671"
+       - "15672:15672"
+       - "25672:25672"
+     volumes:
+       - /sys/fs/cgroup:/sys/fs/cgroup
+     privileged: true
+     tty: true
+  redis:
+          image: redis:3.2
+     hostname: redis
+     ports:
+       - "6379:6379"
+     volumes:
+       - /sys/fs/cgroup:/sys/fs/cgroup
+     privileged: true
+     tty: true
+  postgresql_master:
+     image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
+     hostname: postgresql_M
+     ports:
+       - "5390:5432"
+     volumes:
+       - /sys/fs/cgroup:/sys/fs/cgroup
+     privileged: true
+     tty: true
+  postgresql_slave:
+     image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
+     hostname: postgresql_S
+     ports:
+       - "5380:5432"
+     volumes:
+       - /sys/fs/cgroup:/sys/fs/cgroup
+     privileged: true
+     tty: true
