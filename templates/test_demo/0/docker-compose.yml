@@ -3,6 +3,8 @@ services:
   node:
      image: 10.0.0.96:5000/my_os/node:v1.1
      hostname: node
+     networks:
+       - driver: docker_gwbridge
      ports:
        - ${port_gateway}:5002
        - ${port_consume}:6007
@@ -13,6 +15,8 @@ services:
   rabbitmq:
      image: 10.0.0.96:5000/library/rabbitmq:3.6.10-management
      hostname: rabbitmq
+     networks:
+       - driver: docker_gwbridge
      ports:
        - "5671:5671"
        - "5672:5672"
@@ -27,6 +31,8 @@ services:
   redis:
      image: redis:3.2
      hostname: redis
+     networks:
+       - driver: docker_gwbridge
      ports:
        - "6379:6379"
      volumes:
@@ -35,6 +41,8 @@ services:
   postgresqlmaster:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
      hostname: postgresqlmaster
+     networks:
+       - driver: docker_gwbridge
      ports:
        - "5390:5432"
      volumes:
@@ -44,6 +52,8 @@ services:
   postgresqlslave:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
      hostname: postgresqlslave
+     networks:
+       - driver: docker_gwbridge
      ports:
        - "5380:5432"
      volumes:
