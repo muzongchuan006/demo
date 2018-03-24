@@ -25,7 +25,7 @@ services:
      privileged: true
      tty: true
   redis:
-          image: redis:3.2
+     image: redis:3.2
      hostname: redis
      ports:
        - "6379:6379"
