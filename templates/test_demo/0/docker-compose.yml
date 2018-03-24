@@ -24,9 +24,9 @@ services:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
      tty: true
-  postgresql_master:
+  postgresql:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
-     hostname: postgresql_M
+     hostname: postgresql
      ports:
        - "5390:5432"
      volumes:
