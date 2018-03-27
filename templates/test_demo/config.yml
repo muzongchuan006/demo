@@ -1,10 +1,10 @@
 name: public_test 
 description: |
-   service for public \n
-       rabbitmq ip: 10.42.1.200 \n
-       redis    ip: 10.42.1.201 \n
-       master   ip: 10.42.1.202 \n
-       slave    ip: 10.42.1.203 \n
+   service for public 
+   |    rabbitmq ip: 10.42.1.200 
+   |    redis    ip: 10.42.1.201 
+   |    master   ip: 10.42.1.202 
+   |    slave    ip: 10.42.1.203 
 version:  1.0.0
 category:  public_service
 maintainer:  weds
