@@ -26,7 +26,7 @@ services:
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
-  postgresqlmaster:
+  postgresql-master:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
      hostname: postgresqlmaster
      networks: 
@@ -37,7 +37,7 @@ services:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
      tty: true
-  postgresqlslave:
+  postgresql-slave:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
      hostname: postgresqlslave
      networks: 

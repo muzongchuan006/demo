@@ -1,8 +1,12 @@
-name: DEMO_test 
+name: public_test 
 description: |
-   service_demo
+   service for public
+       rabbitmq ip 10.42.1.200
+       redis    ip 10.42.1.201
+       master   ip 10.42.1.202
+       slave    ip 10.42.1.203
 version:  1.0.0
-category:  demo
+category:  public_service
 maintainer:  weds
-license: demo:v1.0.0
+license: public:v1.0.0
 projectURL: https://github.com/muzongchuan006/demo

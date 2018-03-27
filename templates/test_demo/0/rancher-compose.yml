@@ -1,9 +1,9 @@
 version: '2'
 .catalog:
-  name: "demo_test"
+  name: "public_test"
   version: "v0.0.1"
-  description: "A demo for test."
-  uuid: demo-0
+  description: "public service for test."
+  uuid: public-0
   minimum_rancher_version: v1.0.0
 services:
   rabbitmq:
@@ -16,6 +16,8 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
+    labels:
+      io.rancher.container.requested_ip: "10.42.1.200"
   redis:
     scale: 1
     start_on_create: true
@@ -26,7 +28,9 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
-  postgresqlmaster:
+    labels:
+      io.rancher.container.requested_ip: "10.42.1.201"
+  postgresql-master:
     scale: 1
     start_on_create: true
     health_check:
@@ -36,7 +40,9 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
-  postgresqlslave:
+    labels:
+      io.rancher.container.requested_ip: "10.42.1.202"
+  postgresql-slave:
     scale: 1
     start_on_create: true
     health_check:
@@ -46,3 +52,5 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
+    labels:
+      io.rancher.container.requested_ip: "10.42.1.203"
