@@ -1,13 +1,9 @@
 name: public_test 
 description: |
-   service for public 
-description: |
-   |    rabbitmq ip: 10.42.1.200 
-   |    redis    ip: 10.42.1.201 
-description: |
-   |    master   ip: 10.42.1.202 
-description: |
-   |    slave    ip: 10.42.1.203 
+   | rabbitmq ip: 10.42.1.200 | 
+   | redis    ip: 10.42.1.201 |
+   | master   ip: 10.42.1.202 |
+   | slave    ip: 10.42.1.203 |
 version:  1.0.0
 category:  public_service
 maintainer:  weds
