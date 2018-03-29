@@ -3,6 +3,9 @@ services:
   rabbitmq:
      image: 10.0.0.96:5000/library/rabbitmq:3.6.10-management
      hostname: rabbitmq
+     labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.scheduler.affinity:host_label: key1=102
      networks: 
        - docker_gwbridge
      ports:
@@ -19,6 +22,9 @@ services:
   redis:
      image: redis:3.2
      hostname: redis
+     labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.scheduler.affinity:host_label: key1=102
      networks: 
        - docker_gwbridge
      ports:
@@ -29,6 +35,9 @@ services:
   postgresql-master:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
      hostname: postgresqlmaster
+     labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.scheduler.affinity:host_label: key1=102
      networks: 
        - docker_gwbridge
      ports:
@@ -40,6 +49,9 @@ services:
   postgresql-slave:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
      hostname: postgresqlslave
+     labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.scheduler.affinity:host_label: key1=102
      networks: 
        - docker_gwbridge
      ports:
