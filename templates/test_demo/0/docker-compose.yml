@@ -44,6 +44,7 @@ services:
        - "5390:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
+       - /var/lib/pgsqlmaster/9.6/data:/var/lib/pgsql/9.6/data
      privileged: true
      tty: true
   postgresql-slave:
@@ -58,5 +59,6 @@ services:
        - "5380:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
+       - /var/lib/pgsqlslave/9.6/data:/var/lib/pgsql/9.6/data
      privileged: true
      tty: true
