@@ -1,37 +1,5 @@
 version: '2'
 services:
-  rabbitmq:
-     image: 10.0.0.96:5000/library/rabbitmq:3.6.10-management
-     hostname: rabbitmq
-     labels:
-      io.rancher.scheduler.global: 'true'
-      io.rancher.scheduler.affinity:host_label: key1=102
-     networks: 
-       - docker_gwbridge
-     ports:
-       - "5671:5671"
-       - "5672:5672"
-       - "4369:4369"
-       - "15671:15671"
-       - "15672:15672"
-       - "25672:25672"
-     volumes:
-       - /sys/fs/cgroup:/sys/fs/cgroup
-     privileged: true
-     tty: true
-  redis:
-     image: redis:3.2
-     hostname: redis
-     labels:
-      io.rancher.scheduler.global: 'true'
-      io.rancher.scheduler.affinity:host_label: key1=102
-     networks: 
-       - docker_gwbridge
-     ports:
-       - "6379:6379"
-     volumes:
-       - /sys/fs/cgroup:/sys/fs/cgroup
-     privileged: true
   postgresql-master:
      image: 10.0.0.96:5000/database/pg_ip_pglogical_pathman:v2
      hostname: postgresqlmaster
@@ -44,7 +12,7 @@ services:
        - "5390:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
-       - /var/lib/pgsqlmaster/9.6/data:/var/lib/pgsql/9.6/data
+       - /opt/test/pgsqlmaster/9.6/data:/var/lib/pgsql/9.6/data
      privileged: true
      tty: true
   postgresql-slave:
@@ -52,13 +20,13 @@ services:
      hostname: postgresqlslave
      labels:
       io.rancher.scheduler.global: 'true'
-      io.rancher.scheduler.affinity:host_label: key1=102
+      io.rancher.scheduler.affinity:host_label: key1=104
      networks: 
        - docker_gwbridge
      ports:
        - "5380:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
-       - /var/lib/pgsqlslave/9.6/data:/var/lib/pgsql/9.6/data
+       - /opt/test/pgsqlslave/9.6/data:/var/lib/pgsql/9.6/data
      privileged: true
      tty: true
